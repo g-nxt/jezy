@@ -11,6 +11,7 @@ public class ExcelReportUtil {
 
     // Class Constants, columns names to store data
     private final ArrayList<String> data = new ArrayList<>();
+    private List<ExcelReportUtil> reportUtilList;
     private String filePath;
     private String fileName;
 
@@ -25,6 +26,15 @@ public class ExcelReportUtil {
     }
 
     /**
+     * Return new instance of this class with constructor data
+     *
+     * @return
+     */
+    public void newRow(String... data) {
+        reportUtilList.add(new ExcelReportUtil(data));
+    }
+
+    /**
      * Initiate the excel report by adding the columns for excel report
      * Note: This initiate function should be called only from the @Test methods no additional inheritance allowed
      *
@@ -32,7 +42,7 @@ public class ExcelReportUtil {
      * @return
      * @throws ClassNotFoundException
      */
-    public ExcelReportUtil initiate(List<ExcelReportUtil> excelReportUtilList) throws ClassNotFoundException {
+    public void initiate(List<ExcelReportUtil> excelReportUtilList) throws ClassNotFoundException {
         // Add column data if condition is met
         if (this.data.isEmpty() && excelReportUtilList.isEmpty()) {
             StackTraceElement stackTrace = new Exception().getStackTrace()[1];
@@ -56,12 +66,9 @@ public class ExcelReportUtil {
             // If the annotation parameters are missing the value, error will be thrown
             if (this.filePath == null || this.fileName == null || data.isEmpty())
                 Assert.fail("reportPath or reportName should not be null, please specify them in the @ExcelReport annotation");
+            this.reportUtilList = excelReportUtilList;
+            this.reportUtilList.add(this);
         }
-        // Return this class object only if the path and file name is found for the report
-        if (getFilePath() == null && getFileName() == null)
-            return null;
-        else
-            return this;
     }
 
     // Getters
