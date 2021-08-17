@@ -16,6 +16,7 @@ public class ExcelReportUtil {
     private String fileName;
 
     // Constructor supports n number of column data
+
     /**
      * Constructor
      *
@@ -45,6 +46,7 @@ public class ExcelReportUtil {
     public void initiate(List<ExcelReportUtil> excelReportUtilList) throws ClassNotFoundException {
         // Add column data if condition is met
         if (this.data.isEmpty() && excelReportUtilList.isEmpty()) {
+            this.reportUtilList = excelReportUtilList;
             StackTraceElement stackTrace = new Exception().getStackTrace()[1];
             int matchCount = 0;
             Method method = null;
@@ -66,7 +68,6 @@ public class ExcelReportUtil {
             // If the annotation parameters are missing the value, error will be thrown
             if (this.filePath == null || this.fileName == null || data.isEmpty())
                 Assert.fail("reportPath or reportName should not be null, please specify them in the @ExcelReport annotation");
-            this.reportUtilList = excelReportUtilList;
             this.reportUtilList.add(this);
         }
     }

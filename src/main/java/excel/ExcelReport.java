@@ -8,9 +8,9 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface ExcelReport {
-    String reportPath();
+    String reportPath() default "";
 
-    String reportName();
+    String reportName() default "Jezy_Report.xlsx";
 
     String[] columnNames();
 }
