@@ -1,4 +1,4 @@
-package string;
+package io.github.sannxtgen.string;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -22,7 +22,7 @@ public class StringUtil implements IStringUtil {
     /**
      * Constructor with String
      *
-     * @param string
+     * @param string Provide the String that needs treatment
      */
     public StringUtil(String string) {
         this.finalString = string;
@@ -31,7 +31,8 @@ public class StringUtil implements IStringUtil {
     /**
      * Constructor with String & Delimiter
      *
-     * @param string
+     * @param string Provide the String that needs treatment
+     * @param delimiter Provide the Delimiter that need to be used in the operations
      */
     public StringUtil(String string, String delimiter) {
         this.finalString = string;
@@ -41,7 +42,7 @@ public class StringUtil implements IStringUtil {
     /**
      * Setter for the class String variable
      *
-     * @param string
+     * @param string Provide the String that needs treatment
      */
     public StringUtil setString(String string) {
         this.finalString = string;
@@ -51,8 +52,8 @@ public class StringUtil implements IStringUtil {
     /**
      * Setter for the class String Delimiter variable
      *
-     * @param delimiter
-     * @return
+     * @param delimiter Provide the Delimiter that need to be used in the operations
+     * @return This class will be returned
      */
     public StringUtil setdelimiter(String delimiter) {
         this.finalDelimiter = delimiter;
@@ -62,9 +63,9 @@ public class StringUtil implements IStringUtil {
     /**
      * Get String with regex
      *
-     * @param open
-     * @param close
-     * @return
+     * @param open Provide the start of the String that needs treatment
+     * @param close Provide the end of the String that needs treatment
+     * @return This class will be returned
      */
     public StringUtil getStringBetween(String open, String close) {
         return getStringBetween(this.finalString, open, close);
@@ -73,10 +74,10 @@ public class StringUtil implements IStringUtil {
     /**
      * Get String with regex
      *
-     * @param string
-     * @param open
-     * @param close
-     * @return
+     * @param string Provide the String that needs treatment
+     * @param open Provide the start of the String that needs treatment
+     * @param close Provide the end of the String that needs treatment
+     * @return This class will be returned
      */
     public StringUtil getStringBetween(String string, String open, String close) {
         this.finalString = StringUtils.substringBetween(string, open, close);
@@ -86,7 +87,7 @@ public class StringUtil implements IStringUtil {
     /**
      * Get number in given String, use it only if the final string is already populated
      *
-     * @return
+     * @return This class will be returned
      */
     public StringUtil getNumbersFromString() {
         return getNumbersFromString(this.finalString);
@@ -95,8 +96,8 @@ public class StringUtil implements IStringUtil {
     /**
      * Get number in given String
      *
-     * @param string
-     * @return
+     * @param string Provide the String that needs treatment
+     * @return This class will be returned
      */
     public StringUtil getNumbersFromString(String string) {
         this.finalString = string.replaceAll("[^0-9]+", EMPTY);
@@ -106,8 +107,8 @@ public class StringUtil implements IStringUtil {
     /**
      * Add a prefix to the finalString
      *
-     * @param string
-     * @return
+     * @param string Provide the String that needs treatment
+     * @return This class will be returned
      */
     public StringUtil addPrefix(String string) {
         stringBuilder.append(string);
@@ -120,8 +121,8 @@ public class StringUtil implements IStringUtil {
     /**
      * Remove particular subString from finalString
      *
-     * @param remove
-     * @return
+     * @param remove Provide the String that need to be removed from the finalString
+     * @return This class will be returned
      */
     public StringUtil removeFromString(String remove) {
         return removeFromString(this.finalString, remove);
@@ -130,9 +131,9 @@ public class StringUtil implements IStringUtil {
     /**
      * Remove particular subString from input String
      *
-     * @param string
-     * @param remove
-     * @return
+     * @param string Provide the String that needs treatment
+     * @param remove Provide the String that need to be removed from the finalString
+     * @return This class will be returned
      */
     public StringUtil removeFromString(String string, String remove) {
         this.finalString = string.replaceAll(remove, EMPTY);
@@ -142,7 +143,7 @@ public class StringUtil implements IStringUtil {
     /**
      * Remove special characters from finalString
      *
-     * @return
+     * @return This class will be returned
      */
     public StringUtil removeSpecialCharacters() {
         return removeSpecialCharacters(this.finalString);
@@ -151,8 +152,8 @@ public class StringUtil implements IStringUtil {
     /**
      * Remove special characters from String
      *
-     * @param string
-     * @return
+     * @param string Provide the String that needs treatment
+     * @return This class will be returned
      */
     public StringUtil removeSpecialCharacters(String string) {
         this.finalString = string.replaceAll("[^a-zA-Z0-9]", EMPTY);
@@ -162,9 +163,9 @@ public class StringUtil implements IStringUtil {
     /**
      * Replace only first occurrence of finalString chars with desired chars
      *
-     * @param oldString
-     * @param newString
-     * @return
+     * @param oldString Provide the old String that need to be replaced
+     * @param newString Provide the new String that needs treatment
+     * @return This class will be returned
      */
     public StringUtil replaceFirstOccurrence(String oldString, String newString) {
         return replaceFirstOccurrence(this.finalString, oldString, newString);
@@ -173,10 +174,10 @@ public class StringUtil implements IStringUtil {
     /**
      * Replace only first occurrence of chars with desired chars
      *
-     * @param string
-     * @param oldString
-     * @param newString
-     * @return this
+     * @param string Provide the String that needs treatment
+     * @param oldString Provide the old String that need to be replaced
+     * @param newString Provide the new String that needs treatment
+     * @return This class will be returned
      */
     public StringUtil replaceFirstOccurrence(String string, String oldString, String newString) {
         this.finalString = string.replaceFirst(oldString, newString);
@@ -186,9 +187,9 @@ public class StringUtil implements IStringUtil {
     /**
      * Replace all occurrences of the oldString in finalString with newString
      *
-     * @param oldString
-     * @param newString
-     * @return this
+     * @param oldString Provide the old String that need to be replaced
+     * @param newString Provide the new String that needs treatment
+     * @return This class will be returned
      */
     public StringUtil replaceAllOccurrences(String oldString, String newString) {
         return replaceAllOccurrences(this.finalString, oldString, newString);
@@ -197,9 +198,9 @@ public class StringUtil implements IStringUtil {
     /**
      * Replace all occurrences of the oldString in input with newString
      *
-     * @param string
-     * @param oldString
-     * @param newString
+     * @param string Provide the String that needs treatment
+     * @param oldString Provide the old String that need to be replaced
+     * @param newString Provide the new String that needs treatment
      * @return this
      */
     public StringUtil replaceAllOccurrences(String string, String oldString, String newString) {
@@ -210,11 +211,10 @@ public class StringUtil implements IStringUtil {
     /**
      * Random Number generation
      *
-     * @param length
-     * @return
-     * @throws Exception
+     * @param length Provide the Length of Random Number
+     * @return This class will be returned
      */
-    public StringUtil generateRandomNumber(Integer length) throws Exception {
+    public StringUtil generateRandomNumber(Integer length) {
         StringBuilder maxNumString = new StringBuilder();
         for (int i = 0; i < length; i++) {
             maxNumString.append(9);
@@ -228,12 +228,11 @@ public class StringUtil implements IStringUtil {
     /**
      * Random Number generation
      *
-     * @param minimum
-     * @param maximum
-     * @return
-     * @throws Exception
+     * @param minimum Provide the Minimum Number
+     * @param maximum Provide the Maximum Number
+     * @return This class will be returned
      */
-    public StringUtil generateRandomNumber(int minimum, int maximum) throws Exception {
+    public StringUtil generateRandomNumber(int minimum, int maximum) {
         this.finalString = String.valueOf(minimum + (int) (Math.random() * maximum));
         return this;
     }
@@ -241,7 +240,7 @@ public class StringUtil implements IStringUtil {
     /**
      * Trim the finalString
      *
-     * @return
+     * @return This class will be returned
      */
     public StringUtil trim() {
         this.finalString = this.finalString.trim();
@@ -251,7 +250,7 @@ public class StringUtil implements IStringUtil {
     /**
      * convert finalString to LowerCase
      *
-     * @return
+     * @return This class will be returned
      */
     public StringUtil toLowerCase() {
         return toLowerCase(this.finalString);
@@ -260,8 +259,8 @@ public class StringUtil implements IStringUtil {
     /**
      * convert given String to LowerCase
      *
-     * @param string
-     * @return
+     * @param string Provide the String that needs treatment
+     * @return This class will be returned
      */
     public StringUtil toLowerCase(String string) {
         this.finalString = string.toLowerCase();
@@ -271,7 +270,7 @@ public class StringUtil implements IStringUtil {
     /**
      * convert finalString to UpperCase
      *
-     * @return
+     * @return This class will be returned
      */
     public StringUtil toUpperCase() {
         return toLowerCase(this.finalString);
@@ -280,8 +279,8 @@ public class StringUtil implements IStringUtil {
     /**
      * convert given String to UpperCase
      *
-     * @param string
-     * @return
+     * @param string Provide the String that needs treatment
+     * @return This class will be returned
      */
     public StringUtil toUpperCase(String string) {
         this.finalString = string.toLowerCase();
@@ -291,7 +290,7 @@ public class StringUtil implements IStringUtil {
     /**
      * Get Length of finalString
      *
-     * @return
+     * @return finalString length will be returned as Integer
      */
     public int getLength() {
         return this.finalString.length();
@@ -300,7 +299,7 @@ public class StringUtil implements IStringUtil {
     /**
      * Get the final string value
      *
-     * @return
+     * @return finalString will be returned
      */
     public String finish() {
         return this.finalString;
@@ -313,8 +312,8 @@ public class StringUtil implements IStringUtil {
     /**
      * Check if finalString contains given text
      *
-     * @param contains
-     * @return
+     * @param contains Provide the text to validate if it contains in finalString
+     * @return Boolean will be returned
      */
     public boolean contains(String contains) {
         return contains(this.finalString, contains);
@@ -323,9 +322,9 @@ public class StringUtil implements IStringUtil {
     /**
      * check if original string contains given text
      *
-     * @param original
-     * @param contains
-     * @return
+     * @param original Provide the String that needs treatment
+     * @param contains Provide the text to validate if it contains in original String
+     * @return Boolean will be returned
      */
     public boolean contains(String original, String contains) {
         return this.finalString.contains(contains);
@@ -334,8 +333,8 @@ public class StringUtil implements IStringUtil {
     /**
      * check if finalString equals given text
      *
-     * @param equals
-     * @return
+     * @param equals Provide the text to validate if it equals to finalString
+     * @return Boolean will be returned
      */
     public boolean equals(String equals) {
         return this.finalString.contains(equals);
@@ -344,9 +343,9 @@ public class StringUtil implements IStringUtil {
     /**
      * check if original string equals given text
      *
-     * @param original
-     * @param equals
-     * @return
+     * @param original Provide the String that needs treatment
+     * @param equals Provide the text to validate if it equals to finalString
+     * @return Boolean will be returned
      */
     public boolean equals(String original, String equals) {
         return this.finalString.contains(equals);
@@ -359,7 +358,7 @@ public class StringUtil implements IStringUtil {
     /**
      * Convert the string to Integer
      *
-     * @return
+     * @return Integer will be returned
      */
     public Integer convertToInt() {
         return Integer.parseInt(this.finalString);
@@ -368,7 +367,7 @@ public class StringUtil implements IStringUtil {
     /**
      * Split the finalString using the finalDelimiter
      *
-     * @return
+     * @return String Array will be returned
      */
     public String[] convertToStringArray() {
         return convertToStringArray(this.finalString, this.finalDelimiter);
@@ -377,8 +376,8 @@ public class StringUtil implements IStringUtil {
     /**
      * Split the finalString with the delimiter and return the String Array.
      *
-     * @param delimiter
-     * @return
+     * @param delimiter Provide the Delimiter that need to be used in the operations
+     * @return String Array will be returned
      */
     public String[] convertToStringArray(String delimiter) {
         return convertToStringArray(this.finalString, delimiter);
@@ -387,9 +386,9 @@ public class StringUtil implements IStringUtil {
     /**
      * Split the String according to delimiter and return the array of String.
      *
-     * @param original
-     * @param delimiter
-     * @return
+     * @param original Provide the String that needs treatment
+     * @param delimiter Provide the Delimiter that need to be used in the operations
+     * @return String Array will be returned
      */
     public static String[] convertToStringArray(String original, String delimiter) {
         return original.split(delimiter);
@@ -398,10 +397,10 @@ public class StringUtil implements IStringUtil {
 
     /**
      * Convert String with Dollar Amount to plain String
-     * e.g. $1,000.00 -> 1000
+     * e.g. $2,000.00 -> 2000
      *
-     * @param original
-     * @return
+     * @param original Provide the String that needs treatment
+     * @return Formatted String will be returned
      */
     public String formatDollarAmountToPlainString(String original) {
         String amount = original.substring(0, original.indexOf("."));
@@ -413,8 +412,8 @@ public class StringUtil implements IStringUtil {
      * Convert plain String to Dollar Amount formatted string
      * e.g. 1000 -> $1,000.00
      *
-     * @param string
-     * @return
+     * @param string Provide the String that needs treatment
+     * @return Formatted String will be returned
      */
     public static String formatPlainStringToDollarAmount(String string) {
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
@@ -425,7 +424,7 @@ public class StringUtil implements IStringUtil {
      * Coverts string to arraylist seperated by given delimiter
      * e.g. if input String is '1,2,3' and default delimiter is COMMA.
      *
-     * @return
+     * @return ArrayList<String> will be returned
      */
     public ArrayList<String> convertToArrayList() {
         return convertToArrayList(this.finalString, this.finalDelimiter);
@@ -435,8 +434,8 @@ public class StringUtil implements IStringUtil {
      * Coverts string to arraylist seperated by given delimiter
      * e.g. if input String is '1,2,3' and delimiter is ','. This will be converted to a List.
      *
-     * @param delimiter
-     * @return
+     * @param delimiter Provide the Delimiter that need to be used in the operations
+     * @return ArrayList<String> will be returned
      */
     public ArrayList<String> convertToArrayList(String delimiter) {
         return convertToArrayList(this.finalString, delimiter);
@@ -446,9 +445,9 @@ public class StringUtil implements IStringUtil {
      * Coverts string to arraylist seperated by given delimiter
      * e.g. if input String is '1,2,3' and delimiter is ','. This will be converted to a List.
      *
-     * @param string
-     * @param delimiter
-     * @return
+     * @param string Provide the String that needs treatment
+     * @param delimiter Provide the Delimiter that need to be used in the operations
+     * @return ArrayList<String> will be returned
      */
     public ArrayList<String> convertToArrayList(String string, String delimiter) {
         return new ArrayList<>(Arrays.asList(string.split("\\s*" + delimiter + "\\s*")));
@@ -457,8 +456,8 @@ public class StringUtil implements IStringUtil {
     /**
      * Replace Boolean values to Pass or Fail
      *
-     * @param string
-     * @return
+     * @param string Provide the String that needs treatment
+     * @return Replaced String will be returned
      */
     public static String replaceBooleanToPassFail(String string) {
         return string == null ? EMPTY : string.trim().replaceAll("true", "PASS").replaceAll("false", "FAIL")
@@ -470,7 +469,7 @@ public class StringUtil implements IStringUtil {
      * e.g. If input string = 'x=1,2;y=3,4' and regex = finalDelimiter
      *
      * @return HashMap (x-> 1,2 and y->3,4)
-     * @throws IOException
+     * @throws IOException IO Exception on error(s).
      */
     public HashMap convertToHashMap() throws IOException {
         return convertToHashMap(this.finalDelimiter);
@@ -480,9 +479,9 @@ public class StringUtil implements IStringUtil {
      * Converts string to hashmap seperated by given delimiter
      * e.g. If input string = 'x=1,2;y=3,4' and regex = ';'
      *
-     * @param delimiter
+     * @param delimiter Provide the Delimiter that need to be used in the operations
      * @return HashMap (x-> 1,2 and y->3,4)
-     * @throws IOException
+     * @throws IOException IO Exception on error(s).
      */
     public HashMap convertToHashMap(String delimiter) throws IOException {
         String propFormat = this.finalString.replaceAll(delimiter, "\n");
@@ -494,11 +493,11 @@ public class StringUtil implements IStringUtil {
     /**
      * Convert HashMap<String, ArrayList> to HashMap<String, String> by providing the ArrayList index
      *
-     * @param map
-     * @param index
-     * @return
+     * @param map Provide the HashMap<String, ArrayList> that needs treatment
+     * @param index provide the ArrayList index to extract the string
+     * @return HashMap<String, String> will be returned
      */
-    public static HashMap<String, String> convertToHashMap(HashMap<String, ArrayList> map, int index) {
+    public static HashMap<String, String> convertToHashMap(HashMap<String, ArrayList<String>> map, int index) {
         HashMap<String, String> data = new HashMap<>();
         ArrayList<String> columns = new ArrayList<>(map.keySet());
         for (String s : columns) {

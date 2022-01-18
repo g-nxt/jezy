@@ -1,4 +1,4 @@
-package string;
+package io.github.sannxtgen.string;
 
 public interface IStringUtil {
     String COMMA = ",";

@@ -1,4 +1,4 @@
-package excel;
+package io.github.sannxtgen.excel;
 
 import org.testng.Assert;
 
@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ExcelReportUtil {
+public class ExcelReport {
 
     // Class Constants, columns names to store data
     private final ArrayList<String> data = new ArrayList<>();
-    private List<ExcelReportUtil> reportUtilList;
+    private List<ExcelReport> reportUtilList;
     private String filePath;
     private String fileName;
 
@@ -20,30 +20,29 @@ public class ExcelReportUtil {
     /**
      * Constructor
      *
-     * @param data
+     * @param data Provide the column names row data
      */
-    public ExcelReportUtil(String... data) {
+    public ExcelReport(String... data) {
         this.data.addAll(Arrays.asList(data));
     }
 
     /**
-     * Return new instance of this class with constructor data
+     * Add new row of data
      *
-     * @return
+     * @param data Provide the row data
      */
     public void newRow(String... data) {
-        reportUtilList.add(new ExcelReportUtil(data));
+        reportUtilList.add(new ExcelReport(data));
     }
 
     /**
      * Initiate the excel report by adding the columns for excel report
      * Note: This initiate function should be called only from the @Test methods no additional inheritance allowed
      *
-     * @param excelReportUtilList
-     * @return
-     * @throws ClassNotFoundException
+     * @param excelReportUtilList Provide the List of ExcelReport Object
+     * @throws ClassNotFoundException Class Not Found Exception on error(s).
      */
-    public void initiate(List<ExcelReportUtil> excelReportUtilList) throws ClassNotFoundException {
+    public void initiate(List<ExcelReport> excelReportUtilList) throws ClassNotFoundException {
         // Add column data if condition is met
         if (this.data.isEmpty() && excelReportUtilList.isEmpty()) {
             this.reportUtilList = excelReportUtilList;
@@ -61,7 +60,7 @@ public class ExcelReportUtil {
                 Assert.fail("Multiple Test methods have same name in the class -> " + stackTrace.getClassName() + ", please have a unique Test method name to implement the ExcelReportUtil");
             }
             assert method != null;
-            ExcelReport excelReport = method.getAnnotation(ExcelReport.class);
+            io.github.sannxtgen.excel.annotation.ExcelReport excelReport = method.getAnnotation(io.github.sannxtgen.excel.annotation.ExcelReport.class);
             this.filePath = excelReport.reportPath();
             this.fileName = excelReport.reportName();
             data.addAll(Arrays.asList(excelReport.columnNames()));
@@ -75,9 +74,9 @@ public class ExcelReportUtil {
     // Getters
 
     /**
-     * Get Data <ArrayList> from the class variable data
+     * Get Data <List> from the class variable data
      *
-     * @return
+     * @return List<String> is retirned
      */
     public List<String> getData() {
         return data;
@@ -86,7 +85,7 @@ public class ExcelReportUtil {
     /**
      * Get FilePath class variable value
      *
-     * @return
+     * @return File Path String is returned
      */
     public String getFilePath() {
         return this.filePath;
@@ -95,7 +94,7 @@ public class ExcelReportUtil {
     /**
      * Get FileName class variable value
      *
-     * @return
+     * @return File Name String is returned
      */
     public String getFileName() {
         return this.fileName;
