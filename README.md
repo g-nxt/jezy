@@ -1,6 +1,6 @@
 Jezy [Jezy_Report.pdf](https://github.com/g-nxt/jezy/files/7894997/Jezy_Report.pdf)
 
-Maven Dependency:
+Maven Dependency \n
 &lt;dependency&gt;&#10;
 &lt;groupId&gt;com.github.g-nxt&lt;/groupId&gt;&#10;  
 &lt;artifactId&gt;jezy&lt;/artifactId&gt;&#10;  
