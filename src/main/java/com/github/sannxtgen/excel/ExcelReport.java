@@ -1,4 +1,4 @@
-package io.github.sannxtgen.excel;
+package com.github.sannxtgen.excel;
 
 import org.testng.Assert;
 
@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Excel Report class will carry all the data that need to get into the excel file
+ */
 public class ExcelReport {
 
     // Class Constants, columns names to store data
@@ -15,10 +18,8 @@ public class ExcelReport {
     private String filePath;
     private String fileName;
 
-    // Constructor supports n number of column data
-
     /**
-     * Constructor
+     * Constructor supports n number of column data
      *
      * @param data Provide the column names row data
      */
@@ -60,7 +61,7 @@ public class ExcelReport {
                 Assert.fail("Multiple Test methods have same name in the class -> " + stackTrace.getClassName() + ", please have a unique Test method name to implement the ExcelReportUtil");
             }
             assert method != null;
-            io.github.sannxtgen.excel.annotation.ExcelReport excelReport = method.getAnnotation(io.github.sannxtgen.excel.annotation.ExcelReport.class);
+            com.github.sannxtgen.excel.annotation.ExcelReport excelReport = method.getAnnotation(com.github.sannxtgen.excel.annotation.ExcelReport.class);
             this.filePath = excelReport.reportPath();
             this.fileName = excelReport.reportName();
             data.addAll(Arrays.asList(excelReport.columnNames()));
@@ -71,12 +72,10 @@ public class ExcelReport {
         }
     }
 
-    // Getters
-
     /**
-     * Get Data <List> from the class variable data
+     * Get Data List from the class variable data
      *
-     * @return List<String> is retirned
+     * @return List String is retirned
      */
     public List<String> getData() {
         return data;
