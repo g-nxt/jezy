@@ -1,4 +1,4 @@
-package com.github.sannxtgen.excel.annotation;
+package com.github.gnxt.excel.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

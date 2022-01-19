@@ -1,4 +1,4 @@
-package com.github.sannxtgen.excel;
+package com.github.gnxt.excel;
 
 import org.testng.Assert;
 
@@ -61,7 +61,7 @@ public class ExcelReport {
                 Assert.fail("Multiple Test methods have same name in the class -> " + stackTrace.getClassName() + ", please have a unique Test method name to implement the ExcelReportUtil");
             }
             assert method != null;
-            com.github.sannxtgen.excel.annotation.ExcelReport excelReport = method.getAnnotation(com.github.sannxtgen.excel.annotation.ExcelReport.class);
+            com.github.gnxt.excel.annotation.ExcelReport excelReport = method.getAnnotation(com.github.gnxt.excel.annotation.ExcelReport.class);
             this.filePath = excelReport.reportPath();
             this.fileName = excelReport.reportName();
             data.addAll(Arrays.asList(excelReport.columnNames()));

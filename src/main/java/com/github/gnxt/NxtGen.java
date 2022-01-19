@@ -1,9 +1,9 @@
-package com.github.sannxtgen;
+package com.github.gnxt;
 
-import com.github.sannxtgen.date.DateUtil;
-import com.github.sannxtgen.excel.ExcelReport;
-import com.github.sannxtgen.excel.ExcelUtil;
-import com.github.sannxtgen.string.StringUtil;
+import com.github.gnxt.date.DateUtil;
+import com.github.gnxt.excel.ExcelReport;
+import com.github.gnxt.excel.ExcelUtil;
+import com.github.gnxt.string.StringUtil;
 
 /**
  * This class is kind of a DSL setup, invoke this and get access to all available classes from here

@@ -1,4 +1,4 @@
-package com.github.sannxtgen.date;
+package com.github.gnxt.date;
 
 import org.joda.time.*;
 import org.joda.time.format.DateTimeFormat;

@@ -1,4 +1,4 @@
-package com.github.sannxtgen.string;
+package com.github.gnxt.string;
 
 import org.apache.commons.lang3.StringUtils;
 

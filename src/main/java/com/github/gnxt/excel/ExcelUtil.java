@@ -1,6 +1,6 @@
-package com.github.sannxtgen.excel;
+package com.github.gnxt.excel;
 
-import com.github.sannxtgen.date.DateUtil;
+import com.github.gnxt.date.DateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -39,7 +39,7 @@ public class ExcelUtil {
             String excelFilePath = outputObjectList.get(0).getFilePath() + outputObjectList.get(0).getFileName()
                     // Added date and time stamp to the file suffix to avoid failure in producing the report in case the old file is opened by another process/user,
                     // below replace all will handle both .xls & .xlsx files
-                    .replaceAll(DOT_XLS, UNDERSCORE + com.github.sannxtgen.date.DateUtil.getDate(MMDDYYYY) + UNDERSCORE + DateUtil.getTime(HH_MM_SS) + DOT_XLS);
+                    .replaceAll(DOT_XLS, UNDERSCORE + com.github.gnxt.date.DateUtil.getDate(MMDDYYYY) + UNDERSCORE + DateUtil.getTime(HH_MM_SS) + DOT_XLS);
             Workbook workbook = getWorkbook(excelFilePath);
             Sheet sheet = workbook.createSheet();
             int rowCount = 0;
