@@ -1,5 +1,11 @@
 Jezy [Jezy_Report.pdf](https://github.com/g-nxt/jezy/files/7894997/Jezy_Report.pdf)
 
+&lt;dependency&gt;&#10;
+&lt;groupId&gt;com.github.g-nxt&lt;/groupId&gt;&#10;  
+&lt;artifactId&gt;jezy&lt;/artifactId&gt;&#10;  
+&lt;version&gt;1.0.1&lt;/version&gt;&#10;
+&lt;/dependency&gt;
+
 Jezy is made to make developers life easy. This package will assist in writing excel files, Formatting & Converting String in an easy manner.
 
 > ### **Steps to generate the Excel Report**
