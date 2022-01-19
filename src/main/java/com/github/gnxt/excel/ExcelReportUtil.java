@@ -10,11 +10,11 @@ import java.util.List;
 /**
  * Excel Report class will carry all the data that need to get into the excel file
  */
-public class ExcelReport {
+public class ExcelReportUtil {
 
     // Class Constants, columns names to store data
     private final ArrayList<String> data = new ArrayList<>();
-    private List<ExcelReport> reportUtilList;
+    private List<ExcelReportUtil> reportUtilList;
     private String filePath;
     private String fileName;
 
@@ -23,7 +23,7 @@ public class ExcelReport {
      *
      * @param data Provide the column names row data
      */
-    public ExcelReport(String... data) {
+    public ExcelReportUtil(String... data) {
         this.data.addAll(Arrays.asList(data));
     }
 
@@ -33,7 +33,7 @@ public class ExcelReport {
      * @param data Provide the row data
      */
     public void newRow(String... data) {
-        reportUtilList.add(new ExcelReport(data));
+        reportUtilList.add(new ExcelReportUtil(data));
     }
 
     /**
@@ -43,7 +43,7 @@ public class ExcelReport {
      * @param excelReportUtilList Provide the List of ExcelReport Object
      * @throws ClassNotFoundException Class Not Found Exception on error(s).
      */
-    public void initiate(List<ExcelReport> excelReportUtilList) throws ClassNotFoundException {
+    public void initiate(List<ExcelReportUtil> excelReportUtilList) throws ClassNotFoundException {
         // Add column data if condition is met
         if (this.data.isEmpty() && excelReportUtilList.isEmpty()) {
             this.reportUtilList = excelReportUtilList;
@@ -61,7 +61,7 @@ public class ExcelReport {
                 Assert.fail("Multiple Test methods have same name in the class -> " + stackTrace.getClassName() + ", please have a unique Test method name to implement the ExcelReportUtil");
             }
             assert method != null;
-            com.github.gnxt.excel.annotation.ExcelReport excelReport = method.getAnnotation(com.github.gnxt.excel.annotation.ExcelReport.class);
+            com.github.gnxt.excel.annotations.ExcelReport excelReport = method.getAnnotation(com.github.gnxt.excel.annotations.ExcelReport.class);
             this.filePath = excelReport.reportPath();
             this.fileName = excelReport.reportName();
             data.addAll(Arrays.asList(excelReport.columnNames()));

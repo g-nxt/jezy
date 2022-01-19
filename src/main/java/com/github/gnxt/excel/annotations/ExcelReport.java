@@ -1,4 +1,4 @@
-package com.github.gnxt.excel.annotation;
+package com.github.gnxt.excel.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 public @interface ExcelReport {
     String reportPath() default "";
 
-    String reportName() default "nxtgen_Report.xlsx";
+    String reportName() default "jezy_Report.xlsx";
 
     String[] columnNames();
 }

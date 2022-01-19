@@ -33,7 +33,7 @@ public class ExcelUtil {
      * @param outputObjectList Provide the list of data objects to write excel output
      * @throws IOException IO Exception
      */
-    public void writeExcel(List<ExcelReport> outputObjectList) throws IOException {
+    public void writeExcel(List<ExcelReportUtil> outputObjectList) throws IOException {
         if (!outputObjectList.isEmpty()) {
             outputObjectList.removeAll(Collections.singleton(null));
             String excelFilePath = outputObjectList.get(0).getFilePath() + outputObjectList.get(0).getFileName()
@@ -43,7 +43,7 @@ public class ExcelUtil {
             Workbook workbook = getWorkbook(excelFilePath);
             Sheet sheet = workbook.createSheet();
             int rowCount = 0;
-            for (ExcelReport outputObject : outputObjectList) {
+            for (ExcelReportUtil outputObject : outputObjectList) {
                 Row row = sheet.createRow(rowCount);
                 writeBook((ArrayList<String>) outputObject.getData(), row);
                 ++rowCount;
